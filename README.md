@@ -1,4 +1,4 @@
-![Pi-hole Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Pi-hole_logo.png/120px-Pi-hole_logo.png)
+![Pi-hole Logo]([https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Pi-hole_logo.png/120px-Pi-hole_logo.png](https://upload.wikimedia.org/wikipedia/commons/0/00/Pi-hole_Logo.png))
 
 # 🌐 Pi-hole und WireGuard Installer für Debian-basierte Cloud-Server
 
