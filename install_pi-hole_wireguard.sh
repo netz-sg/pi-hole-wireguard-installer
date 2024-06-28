@@ -14,6 +14,38 @@ sudo apt-get update && sudo apt-get upgrade -y
 echo -e "${GREEN}Pi-hole wird installiert...${NC}"
 curl -sSL https://install.pi-hole.net | bash
 
+# Pi-hole auf Port 8080 konfigurieren
+echo -e "${GREEN}Konfiguration von Pi-hole auf Port 8080...${NC}"
+sudo sed -i 's/80/8080/g' /etc/lighttpd/lighttpd.conf
+sudo systemctl restart lighttpd
+
+# Installation von Caddy
+echo -e "${GREEN}Caddy wird installiert...${NC}"
+sudo apt-get install -y debian-keyring debian-archive-keyring apt-transport-https
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo tee /usr/share/keyrings/caddy-archive-keyring.gpg >/dev/null
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+sudo apt-get update
+sudo apt-get install caddy
+
+# Benutzer nach der Domain fragen
+echo -e "${GREEN}Bitte geben Sie die Domain für das Pi-hole Webinterface an (z.B. example.com):${NC}"
+read DOMAIN
+
+# Caddyfile konfigurieren
+echo -e "${GREEN}Konfiguration von Caddy für die Domain ${DOMAIN}...${NC}"
+sudo bash -c "cat <<EOT > /etc/caddy/Caddyfile
+{
+    email youremail@example.com
+}
+
+${DOMAIN} {
+    reverse_proxy localhost:8080
+}
+EOT"
+
+# Caddy-Dienst neu starten
+sudo systemctl restart caddy
+
 # Installation von WireGuard
 echo -e "${GREEN}WireGuard wird installiert...${NC}"
 sudo apt-get install wireguard qrencode -y
