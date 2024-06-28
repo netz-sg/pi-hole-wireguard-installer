@@ -4,6 +4,16 @@
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
+# SGNetz ASCII-Art
+echo -e "${GREEN}
+  _____ _____ _   _ _   _ _______ 
+ / ____|_   _| \\ | | \\ | |__   __|
+| (___   | | |  \\| |  \\| |  | |   
+ \\___ \\  | | | . \` | . \` |  | |   
+ ____) |_| |_| |\\  | |\\  |  | |   
+|_____/|_____|_| \\_|_| \\_|  |_|   
+${NC}"
+echo -e "${GREEN}✨ Willkommen zu SGNetz! ✨${NC}"
 echo -e "${GREEN}Beginn der Installation von Pi-hole und WireGuard...${NC}"
 
 # Update und Upgrade des Systems
@@ -27,15 +37,17 @@ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo 
 sudo apt-get update
 sudo apt-get install caddy
 
-# Benutzer nach der Domain fragen
+# Benutzer nach der Domain und E-Mail-Adresse fragen
 echo -e "${GREEN}Bitte geben Sie die Domain für das Pi-hole Webinterface an (z.B. example.com):${NC}"
 read DOMAIN
+echo -e "${GREEN}Bitte geben Sie Ihre E-Mail-Adresse für Let's Encrypt an:${NC}"
+read EMAIL
 
 # Caddyfile konfigurieren
 echo -e "${GREEN}Konfiguration von Caddy für die Domain ${DOMAIN}...${NC}"
 sudo bash -c "cat <<EOT > /etc/caddy/Caddyfile
 {
-    email youremail@example.com
+    email ${EMAIL}
 }
 
 ${DOMAIN} {
