@@ -1,6 +1,6 @@
-![Pi-hole Logo](https://upload.wikimedia.org/wikipedia/commons/0/00/Pi-hole_Logo.png)
-![WireGuard Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Logo_of_WireGuard.svg/1200px-Logo_of_WireGuard.svg.png)
-![Caddy Logo](https://dqah5woojdp50.cloudfront.net/original/2X/5/5f2c1a30bf4aeec78ece52d64426ec606d9fee7d.png)
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Pi-hole_Logo.png" alt="Pi-hole Logo" width="100"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Logo_of_WireGuard.svg/1200px-Logo_of_WireGuard.svg.png" alt="WireGuard Logo" width="100"/>
+<img src="https://dqah5woojdp50.cloudfront.net/original/2X/5/5f2c1a30bf4aeec78ece52d64426ec606d9fee7d.png" alt="Caddy Logo" width="100"/>
 
 # 🌐 Pi-hole und WireGuard Installer für Debian-basierte Cloud-Server
 
