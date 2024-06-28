@@ -1,8 +1,10 @@
-![Pi-hole Logo]([https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Pi-hole_logo.png/120px-Pi-hole_logo.png](https://upload.wikimedia.org/wikipedia/commons/0/00/Pi-hole_Logo.png))
+![Pi-hole Logo](https://upload.wikimedia.org/wikipedia/commons/0/00/Pi-hole_Logo.png)
+![WireGuard Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/WireGuard_logo.svg/1024px-WireGuard_logo.svg.png)
+![Caddy Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Caddy_logo.svg/800px-Caddy_logo.svg.png)
 
 # 🌐 Pi-hole und WireGuard Installer für Debian-basierte Cloud-Server
 
-Dieses Skript installiert Pi-hole und WireGuard auf einem Debian-basierten Cloud-Server. Mit dieser Konfiguration können Sie sich über ein VPN mit dem Server verbinden, der Pi-hole als DNS-Server verwendet, um Werbung zu blockieren.
+Dieses Skript installiert Pi-hole und WireGuard auf einem Debian-basierten Cloud-Server. Mit dieser Konfiguration kannst du dich über ein VPN mit dem Server verbinden, der Pi-hole als DNS-Server verwendet, um Werbung zu blockieren. Außerdem wird Caddy als Reverse Proxy verwendet, um das Pi-hole-Webinterface mit Let's Encrypt TLS-Zertifikaten abzusichern.
 
 ## 🚀 Voraussetzungen
 
@@ -11,20 +13,20 @@ Dieses Skript installiert Pi-hole und WireGuard auf einem Debian-basierten Cloud
 
 ## 🛠️ Installation
 
-1. **Klonen Sie dieses Repository auf Ihren Server:**
+1. **Klonen dieses Repository auf deinen Server:**
 
     ```bash
     git clone https://github.com/netz-sg/pi-hole-wireguard-installer.git
     cd pi-hole-wireguard-installer
     ```
 
-2. **Machen Sie das Skript ausführbar:**
+2. **Skript ausführbar machen:**
 
     ```bash
     chmod +x install_pi-hole_wireguard.sh
     ```
 
-3. **Führen Sie das Skript aus:**
+3. **Skript ausführen:**
 
     ```bash
     sudo ./install_pi-hole_wireguard.sh
@@ -32,29 +34,31 @@ Dieses Skript installiert Pi-hole und WireGuard auf einem Debian-basierten Cloud
 
 Das Skript führt die folgenden Schritte aus:
 
-1. Aktualisiert das System.
-2. Installiert Pi-hole.
-3. Installiert WireGuard und generiert die notwendigen Schlüssel.
-4. Konfiguriert WireGuard, um den gesamten Verkehr über den Server zu leiten.
-5. Aktiviert IP-Forwarding und konfiguriert iptables.
-6. Startet den WireGuard-Dienst und aktiviert ihn beim Booten.
-7. Erstellt eine Client-Konfigurationsdatei und zeigt einen QR-Code für die einfache Verbindung an.
+1. **System wird aktualisiert.**
+2. **Pi-hole wird installiert.**
+3. **Pi-hole wird auf Port 8080 konfiguriert.**
+4. **Caddy wird installiert und als Reverse Proxy konfiguriert, um das Pi-hole-Webinterface mit Let's Encrypt TLS-Zertifikaten abzusichern.**
+5. **WireGuard wird installiert und die notwendigen Schlüssel werden generiert.**
+6. **WireGuard wird konfiguriert, um den gesamten Verkehr über den Server zu leiten.**
+7. **IP-Forwarding wird aktiviert und iptables wird konfiguriert.**
+8. **Der WireGuard-Dienst wird gestartet und beim Booten aktiviert.**
+9. **Eine Client-Konfigurationsdatei wird erstellt und ein QR-Code für die einfache Verbindung wird angezeigt.**
 
 ## 🌐 Verwendung
 
 Nach der Installation:
 
-1. **Scannen Sie den angezeigten QR-Code mit Ihrem WireGuard-Client, um die VPN-Verbindung zu konfigurieren.**
-2. **Verbinden Sie sich mit dem VPN.**
-3. **Surfen Sie werbefrei im Internet!**
+1. **Scanne den angezeigten QR-Code mit deinem WireGuard-Client, um die VPN-Verbindung zu konfigurieren.**
+2. **Verbinde dich mit dem VPN.**
+3. **Surfe werbefrei im Internet!**
 
 ## 🔧 Fehlerbehebung
 
-Sollten während der Installation oder Verwendung Probleme auftreten, überprüfen Sie die Logs und stellen Sie sicher, dass alle Schritte korrekt ausgeführt wurden. Bei Bedarf können Sie das Skript erneut ausführen oder sich an die Dokumentation von Pi-hole und WireGuard wenden.
+Sollten während der Installation oder Verwendung Probleme auftreten, überprüfe die Logs und stelle sicher, dass alle Schritte korrekt ausgeführt wurden. Bei Bedarf kannst du das Skript erneut ausführen oder dich an die Dokumentation von Pi-hole, WireGuard und Caddy wenden.
 
 ## 📜 Lizenz
 
-Dieses Projekt ist unter der MIT-Lizenz lizenziert. Weitere Informationen finden Sie in der `LICENSE`-Datei.
+Dieses Projekt ist unter der MIT-Lizenz lizenziert. Weitere Informationen findest du in der `LICENSE`-Datei.
 
 ---
 
